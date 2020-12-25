@@ -26,8 +26,13 @@ BTN_ARROW_DOWN  = 80
 BTN_ARROW_RIGHT = 77
 BTN_ARROW_LEFT  = 75
 
-
 matrix = []
+
+min_cnt_of_available_numbers = 10
+available_numbers = []
+min_x = 0
+min_y = 0
+check = "Not checked"
 
 ###############################################################################
 # Initialize whole Sudoku matrix with default values.
@@ -264,6 +269,12 @@ def refresh_screen(curs_x, curs_y):
 	color_off()
 	print("num_of_solved_elements  =", matrix[VARIABLE]['num_of_solved_elements'])
 	print("num_of_checked_elements =", matrix[VARIABLE]['num_of_checked_elements'])
+
+	print("min_cnt_of_available_numbers =", min_cnt_of_available_numbers)
+	print("available_numbers =", available_numbers)
+	print("min_x =", min_x)
+	print("min_y =", min_y)
+	print("check =", check)
 #enddef
 
 
@@ -279,6 +290,36 @@ def cursor(option):
 #enddef
 
 
+def find_submatrix_limits(curs_x, curs_y):
+	if (curs_x in range(0, 3)):
+		lim_min_x = 0
+		lim_max_x = 3
+
+	elif (curs_x in range(3, 6)):
+		lim_min_x = 3
+		lim_max_x = 6
+
+	elif (curs_x in range(6, 9)):
+		lim_min_x = 6
+		lim_max_x = 9
+
+
+	if (curs_y in range(0, 3)):
+		lim_min_y = 0
+		lim_max_y = 3
+
+	elif (curs_y in range(3, 6)):
+		lim_min_y = 3
+		lim_max_y = 6
+
+	elif (curs_y in range(6, 9)):
+		lim_min_y = 6
+		lim_max_y = 9
+
+	return lim_min_x, lim_max_x, lim_min_y, lim_max_y
+#enddef
+
+
 ###############################################################################
 # Input: Coordinates of one matrix element.
 # This function goes through whole line and it deletes already known element
@@ -288,7 +329,7 @@ def cursor(option):
 # If there is only one available number left in an element then the element
 # is claimed to be solved.
 ###############################################################################
-def check_line(x, y):
+def remove_known_numbers_from_line(x, y):
 	for i in range(MATRIX_DIM_X):
 		if (matrix[x][y]['solution'] in matrix[i][y]['available_numbers']):
 			matrix[i][y]['available_numbers'].remove(matrix[x][y]['solution'])
@@ -313,7 +354,7 @@ def check_line(x, y):
 # If there is only one available number left in an element then the element
 # is claimed to be solved.
 ###############################################################################
-def check_column(x, y):
+def remove_known_numbers_from_column(x, y):
 	for i in range(MATRIX_DIM_Y):
 		if (matrix[x][y]['solution'] in matrix[x][i]['available_numbers']):
 			matrix[x][i]['available_numbers'].remove(matrix[x][y]['solution'])
@@ -338,36 +379,13 @@ def check_column(x, y):
 # If there is only one available number left in an element then the element
 # is claimed to be solved.
 ###############################################################################
-def check_submatrix(x, y):
-	if (x in range(0, 3)):
-		lim_min_x = 0
-		lim_max_x = 3
-
-	elif (x in range(3, 6)):
-		lim_min_x = 3
-		lim_max_x = 6
-
-	elif (x in range(6, 9)):
-		lim_min_x = 6
-		lim_max_x = 9
-
-
-	if (y in range(0, 3)):
-		lim_min_y = 0
-		lim_max_y = 3
-
-	elif (y in range(3, 6)):
-		lim_min_y = 3
-		lim_max_y = 6
-
-	elif (y in range(6, 9)):
-		lim_min_y = 6
-		lim_max_y = 9
+def remove_known_numbers_from_submatrix(curs_x, curs_y):
+	lim_min_x, lim_max_x, lim_min_y, lim_max_y = find_submatrix_limits(curs_x, curs_y)
 
 	for j in range(lim_min_y, lim_max_y):
 		for i in range(lim_min_x, lim_max_x):
-			if (matrix[x][y]['solution'] in matrix[i][j]['available_numbers']):
-				matrix[i][j]['available_numbers'].remove(matrix[x][y]['solution'])
+			if (matrix[curs_x][curs_y]['solution'] in matrix[i][j]['available_numbers']):
+				matrix[i][j]['available_numbers'].remove(matrix[curs_x][curs_y]['solution'])
 			#endif
 
 			if (1 == len(matrix[i][j]['available_numbers'])):
@@ -406,28 +424,119 @@ def delete_value(curs_x, curs_y):
 		matrix[curs_x][curs_y]['solved'] = False
 		matrix[curs_x][curs_y]['available_numbers'] = [matrix[curs_x][curs_y]['solution']] #[1, 2, 3, 4, 5, 6, 7, 8, 9]
 		matrix[curs_x][curs_y]['solution'] = EMPTY
+	#endif
 
 	# TODO: pridat naspat vymazane cislo do riadkov, stlpcov a submatrixu
+#enddef
+
+
+def verify_line(line):
+	numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	for i in range(MATRIX_DIM_X):
+		if matrix[i][line]['solution'] in numbers:
+			numbers.remove(matrix[i][line]['solution'])
+
+	if (0 == len(numbers)):
+		return True
+	else:
+		return False
+#enddef
+
+
+def verify_column(column):
+	numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	for i in range(MATRIX_DIM_Y):
+		if matrix[column][i]['solution'] in numbers:
+			numbers.remove(matrix[column][i]['solution'])
+
+	if (0 == len(numbers)):
+		return True
+	else:
+		return False
+#enddef
+
+
+def verify_submatrix(curs_x, curs_y):
+	lim_min_x, lim_max_x, lim_min_y, lim_max_y = find_submatrix_limits(curs_x, curs_y)
+
+	numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	for y in range(lim_min_y, lim_max_y):
+		for x in range(lim_min_x, lim_max_x):
+			if matrix[x][y]['solution'] in numbers:
+				numbers.remove(matrix[x][y]['solution'])
+
+	if (0 == len(numbers)):
+		return True
+	else:
+		return False
+#enddef
+
+
+def verify_matrix():
+	for i in range(MATRIX_DIM_Y):
+		if (False == verify_line(i)):
+			return False
+		#endif
+	#endfor
+
+	for i in range(MATRIX_DIM_X):
+		if (False == verify_column(i)):
+			return False
+		#endif
+	#endfor
+
+	for y in [0, 3, 6]:
+		for x in [0, 3, 6]:
+			if (False == verify_submatrix(x, y)):
+				return False
+			#endif
+		#endfor
+	#endfor
+
+	return True
 #enddef
 
 
 ###############################################################################
 # Solve the matrix.
 ###############################################################################
-def matrix_solve():
+def matrix_solve(curs_x, curs_y):
+	global min_cnt_of_available_numbers
+	global min_x
+	global min_y
+	global check
+
 	while ((matrix[VARIABLE]['num_of_checked_elements'] != matrix[VARIABLE]['num_of_solved_elements']) and (0 != matrix[VARIABLE]['num_of_solved_elements'])):
 		for x in range(MATRIX_DIM_X):
 			for y in range(MATRIX_DIM_Y):
 				if ((True == matrix[x][y]['solved']) and (False == matrix[x][y]['checked'])):
-					check_line(x, y)
-					check_column(x, y)
-					check_submatrix(x, y)
+					remove_known_numbers_from_line(x, y)
+					remove_known_numbers_from_column(x, y)
+					remove_known_numbers_from_submatrix(x, y)
 					matrix[x][y]['checked'] = True
 					matrix[VARIABLE]['num_of_checked_elements'] = matrix[VARIABLE]['num_of_checked_elements'] + 1
 				#endif
 			#endfor
 		#endfor
 	#endwhile
+
+	# Go through whole matrix and find first element with the lowest count of available numbers.
+	min_cnt_of_available_numbers = 10
+	min_x = 0
+	min_y = 0
+	for x in range(MATRIX_DIM_X):
+		for y in range(MATRIX_DIM_Y):
+			if (False == matrix[x][y]['solved']) and (min_cnt_of_available_numbers > len(matrix[x][y]['available_numbers'])):
+				min_cnt_of_available_numbers = len(matrix[x][y]['available_numbers'])
+				available_numbers.clear()
+				available_numbers.extend(matrix[x][y]['available_numbers'])
+				min_x = x
+				min_y = y
+			#endif
+		#endfor
+	#endfor
+
+	check = verify_matrix()
 #enddef
 
 
@@ -471,6 +580,8 @@ def main():
 		if (BTN_DELETE == ord(g)):
 			delete_value(curs_x, curs_y)
 
+		# TODO: New game
+
 		if (BTN_F5 == ord(g)):
 			matrix_save_load_menu("Save")
 
@@ -478,7 +589,7 @@ def main():
 			matrix_save_load_menu("Load")
 
 		if (BTN_SPACE == ord(g)):
-			matrix_solve()
+			matrix_solve(curs_x, curs_y)
 	#endwhile
 
 	cursor("on")
@@ -487,6 +598,17 @@ def main():
 
 main()
 
+# status = []
+# status.append \
+# (
+# 	{
+# 		"matrix":""
+# 	}
+# )
+
+# status[0] = {}
+
+# print(status)
 
 # 0 ulozim stav
 # 1 najdem element s najmensim poctom moznosti a vyberiem si jednu
