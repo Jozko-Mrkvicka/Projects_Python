@@ -1,6 +1,7 @@
 import os
 import json
 import msvcrt
+import copy
 
 # Colors
 DEFAULT = 0
@@ -19,6 +20,7 @@ BTN_ESC         = 27
 BTN_ENTER       = 13
 BTN_SPACE       = 32
 BTN_DELETE      = 83
+BTN_F1          = 59
 BTN_F5          = 63
 BTN_F6          = 64
 BTN_ARROW_UP    = 72
@@ -26,13 +28,19 @@ BTN_ARROW_DOWN  = 80
 BTN_ARROW_RIGHT = 77
 BTN_ARROW_LEFT  = 75
 
-matrix = []
+gMatrix = []
 
-min_cnt_of_available_numbers = 10
-available_numbers = []
 min_x = 0
 min_y = 0
 check = "Not checked"
+
+gAvailable_numbers = []
+gX = -1
+gY = -1
+
+gFinished = False
+gStep = 0
+gDone = False
 
 ###############################################################################
 # Initialize whole Sudoku matrix with default values.
@@ -40,7 +48,7 @@ check = "Not checked"
 # "checked" - Vertical, horizontal and submatrix checks were already performed
 #             from perspective of particular element.
 ###############################################################################
-def matrix_init():
+def matrix_init(matrix):
 	for x in range(MATRIX_DIM_X):
 		matrix.append([])
 
@@ -70,7 +78,7 @@ def matrix_init():
 # This function prints all of the numbers which are still possible to be placed
 # in an element.
 ###############################################################################
-def matrix_print_available_numbers(x,y):
+def matrix_print_available_numbers(matrix, x, y):
 	count = len(matrix[x][y]["available_numbers"])
 	for i in range(count):
 		print(matrix[x][y]["available_numbers"][i], end = '')
@@ -124,21 +132,21 @@ def color_print(str):
 ###############################################################################
 # Print one line of Sudoku matrix.
 ###############################################################################
-def matrix_print_line(line, curs_x, curs_y):
+def matrix_print_line(matrix, line, curs_x, curs_y):
 	if ((3 == line) or (6 == line)):
 		color_print("╠═════════╪═════════╪═════════╬═════════╪═════════╪═════════╬═════════╪═════════╪═════════╣\n");
 	elif (0 != line):
 		color_print("╟─────────┼─────────┼─────────╫─────────┼─────────┼─────────╫─────────┼─────────┼─────────╢\n");
 
-	color_print("║");    matrix_print_available_numbers(0, line);
-	color_print("│");    matrix_print_available_numbers(1, line);
-	color_print("│");    matrix_print_available_numbers(2, line);
-	color_print("║");    matrix_print_available_numbers(3, line);
-	color_print("│");    matrix_print_available_numbers(4, line);
-	color_print("│");    matrix_print_available_numbers(5, line);
-	color_print("║");    matrix_print_available_numbers(6, line);
-	color_print("│");    matrix_print_available_numbers(7, line);
-	color_print("│");    matrix_print_available_numbers(8, line);
+	color_print("║");    matrix_print_available_numbers(matrix, 0, line);
+	color_print("│");    matrix_print_available_numbers(matrix, 1, line);
+	color_print("│");    matrix_print_available_numbers(matrix, 2, line);
+	color_print("║");    matrix_print_available_numbers(matrix, 3, line);
+	color_print("│");    matrix_print_available_numbers(matrix, 4, line);
+	color_print("│");    matrix_print_available_numbers(matrix, 5, line);
+	color_print("║");    matrix_print_available_numbers(matrix, 6, line);
+	color_print("│");    matrix_print_available_numbers(matrix, 7, line);
+	color_print("│");    matrix_print_available_numbers(matrix, 8, line);
 	color_print("║\n");
 
 	color_print("╟─────────┼─────────┼─────────╫─────────┼─────────┼─────────╫─────────┼─────────┼─────────╢\n")
@@ -181,11 +189,11 @@ def matrix_print_line(line, curs_x, curs_y):
 ###############################################################################
 # Print whole Sudoku matrix.
 ###############################################################################
-def matrix_print(curs_x, curs_y):
+def matrix_print(matrix, curs_x, curs_y):
 	color_print("╔═════════╤═════════╤═════════╦═════════╤═════════╤═════════╦═════════╤═════════╤═════════╗\n")
 
 	for y in range(MATRIX_DIM_Y):
-		matrix_print_line(y, curs_x, curs_y)
+		matrix_print_line(matrix, y, curs_x, curs_y)
 
 	color_print("╚═════════╧═════════╧═════════╩═════════╧═════════╧═════════╩═════════╧═════════╧═════════╝\n")
 #enddef
@@ -194,9 +202,7 @@ def matrix_print(curs_x, curs_y):
 ###############################################################################
 # Draw simple save/load menu.
 ###############################################################################
-def matrix_save_load_menu(action):
-	global matrix
-
+def matrix_save_load_menu(matrix, action):
 	file_list = []
 	i = 0
 	for file in range(NUM_OF_FILES):
@@ -246,13 +252,15 @@ def matrix_save_load_menu(action):
 					json.dump(matrix, json_file, indent=4)
 		#endif
 	#endwhile
+
+	return matrix
 #enddef
 
 
 ###############################################################################
 # Redraw whole screen.
 ###############################################################################
-def refresh_screen(curs_x, curs_y):
+def refresh_screen(matrix, curs_x, curs_y):
 	os.system("cls")
 	color_on(YELLOW)
 	print("╔═════════════════════════════════════════════════════════════════════════════════════════╗")
@@ -260,21 +268,24 @@ def refresh_screen(curs_x, curs_y):
 	print("╚═════════════════════════════════════════════════════════════════════════════════════════╝")
 	color_off()
 
-	matrix_print(curs_x, curs_y)
+	matrix_print(matrix, curs_x, curs_y)
 
 	color_on(YELLOW)
 	print("╔═══════════╦═════════════╦════════════╦═════════════╦══════════════╦══════════╦══════════╗")
 	print("║ ESC Exit  ║ DEL Delete  ║ ←↑→↓ Move  ║ 1..9 Value  ║ SPACE Solve  ║ F5 Save  ║ F6 Load  ║")
 	print("╚═══════════╩═════════════╩════════════╩═════════════╩══════════════╩══════════╩══════════╝")
 	color_off()
-	print("num_of_solved_elements  =", matrix[VARIABLE]['num_of_solved_elements'])
-	print("num_of_checked_elements =", matrix[VARIABLE]['num_of_checked_elements'])
+	# print("num_of_solved_elements  =", matrix[VARIABLE]['num_of_solved_elements'])
+	# print("num_of_checked_elements =", matrix[VARIABLE]['num_of_checked_elements'])
+	# print("min_x =", min_x)
+	# print("min_y =", min_y)
+	# print("check =", check)
+	print("gAvailable_numbers =", gAvailable_numbers)
+	print("gX =", gX)
+	print("gY =", gY)
+	print("step =", gStep)
+	print("finished =", gFinished)
 
-	print("min_cnt_of_available_numbers =", min_cnt_of_available_numbers)
-	print("available_numbers =", available_numbers)
-	print("min_x =", min_x)
-	print("min_y =", min_y)
-	print("check =", check)
 #enddef
 
 
@@ -329,7 +340,7 @@ def find_submatrix_limits(curs_x, curs_y):
 # If there is only one available number left in an element then the element
 # is claimed to be solved.
 ###############################################################################
-def remove_known_numbers_from_line(x, y):
+def remove_known_numbers_from_line(matrix, x, y):
 	for i in range(MATRIX_DIM_X):
 		if (matrix[x][y]['solution'] in matrix[i][y]['available_numbers']):
 			matrix[i][y]['available_numbers'].remove(matrix[x][y]['solution'])
@@ -342,6 +353,8 @@ def remove_known_numbers_from_line(x, y):
 			matrix[VARIABLE]['num_of_solved_elements'] = matrix[VARIABLE]['num_of_solved_elements'] + 1
 		#endif
 	#endfor
+
+	return matrix
 #enddef
 
 
@@ -354,7 +367,7 @@ def remove_known_numbers_from_line(x, y):
 # If there is only one available number left in an element then the element
 # is claimed to be solved.
 ###############################################################################
-def remove_known_numbers_from_column(x, y):
+def remove_known_numbers_from_column(matrix, x, y):
 	for i in range(MATRIX_DIM_Y):
 		if (matrix[x][y]['solution'] in matrix[x][i]['available_numbers']):
 			matrix[x][i]['available_numbers'].remove(matrix[x][y]['solution'])
@@ -367,6 +380,8 @@ def remove_known_numbers_from_column(x, y):
 			matrix[VARIABLE]['num_of_solved_elements'] = matrix[VARIABLE]['num_of_solved_elements'] + 1
 		#endif
 	#endfor
+
+	return matrix
 #enddef
 
 
@@ -379,7 +394,7 @@ def remove_known_numbers_from_column(x, y):
 # If there is only one available number left in an element then the element
 # is claimed to be solved.
 ###############################################################################
-def remove_known_numbers_from_submatrix(curs_x, curs_y):
+def remove_known_numbers_from_submatrix(matrix, curs_x, curs_y):
 	lim_min_x, lim_max_x, lim_min_y, lim_max_y = find_submatrix_limits(curs_x, curs_y)
 
 	for j in range(lim_min_y, lim_max_y):
@@ -396,13 +411,15 @@ def remove_known_numbers_from_submatrix(curs_x, curs_y):
 			#endif
 		#endfor
 	#endfor
+
+	return matrix
 #enddef
 
 
 ###############################################################################
 # Add new value to matrix or overwrite old one.
 ###############################################################################
-def add_value(curs_x, curs_y, value):
+def add_value(matrix, curs_x, curs_y, value):
 	# Increment counter only if element is still empty.
 	if (False == matrix[curs_x][curs_y]['solved']):
 		matrix[VARIABLE]['num_of_solved_elements'] = matrix[VARIABLE]['num_of_solved_elements'] + 1
@@ -410,13 +427,15 @@ def add_value(curs_x, curs_y, value):
 	matrix[curs_x][curs_y]['solution'] = value
 	matrix[curs_x][curs_y]['solved'] = True
 	matrix[curs_x][curs_y]['available_numbers'] = []
+
+	return matrix
 #enddef
 
 
 ###############################################################################
 # Delete value from matrix.
 ###############################################################################
-def delete_value(curs_x, curs_y):
+def delete_value(matrix, curs_x, curs_y):
 	# Decrement counter only if element has still some value.
 	if (True == matrix[curs_x][curs_y]['solved']):
 		matrix[VARIABLE]['num_of_solved_elements'] = matrix[VARIABLE]['num_of_solved_elements'] - 1
@@ -426,11 +445,12 @@ def delete_value(curs_x, curs_y):
 		matrix[curs_x][curs_y]['solution'] = EMPTY
 	#endif
 
+	return matrix
 	# TODO: pridat naspat vymazane cislo do riadkov, stlpcov a submatrixu
 #enddef
 
 
-def verify_line(line):
+def verify_line(matrix, line):
 	numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	for i in range(MATRIX_DIM_X):
 		if matrix[i][line]['solution'] in numbers:
@@ -443,7 +463,7 @@ def verify_line(line):
 #enddef
 
 
-def verify_column(column):
+def verify_column(matrix, column):
 	numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	for i in range(MATRIX_DIM_Y):
 		if matrix[column][i]['solution'] in numbers:
@@ -456,7 +476,7 @@ def verify_column(column):
 #enddef
 
 
-def verify_submatrix(curs_x, curs_y):
+def verify_submatrix(matrix, curs_x, curs_y):
 	lim_min_x, lim_max_x, lim_min_y, lim_max_y = find_submatrix_limits(curs_x, curs_y)
 
 	numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -472,22 +492,22 @@ def verify_submatrix(curs_x, curs_y):
 #enddef
 
 
-def verify_matrix():
+def is_matrix_solved(matrix):
 	for i in range(MATRIX_DIM_Y):
-		if (False == verify_line(i)):
+		if (False == verify_line(matrix, i)):
 			return False
 		#endif
 	#endfor
 
 	for i in range(MATRIX_DIM_X):
-		if (False == verify_column(i)):
+		if (False == verify_column(matrix, i)):
 			return False
 		#endif
 	#endfor
 
 	for y in [0, 3, 6]:
 		for x in [0, 3, 6]:
-			if (False == verify_submatrix(x, y)):
+			if (False == verify_submatrix(matrix, x, y)):
 				return False
 			#endif
 		#endfor
@@ -497,22 +517,27 @@ def verify_matrix():
 #enddef
 
 
-###############################################################################
-# Solve the matrix.
-###############################################################################
-def matrix_solve(curs_x, curs_y):
-	global min_cnt_of_available_numbers
-	global min_x
-	global min_y
-	global check
+def is_matrix_filled(matrix):
+	for x in range(MATRIX_DIM_X):
+		for y in range(MATRIX_DIM_Y):
+			if (False == matrix[x][y]["solved"]):
+				return False
+			#endif
+		#endfor
+	#endfor
 
+	return True
+#enddef
+
+
+def remove_known_numbers(matrix):
 	while ((matrix[VARIABLE]['num_of_checked_elements'] != matrix[VARIABLE]['num_of_solved_elements']) and (0 != matrix[VARIABLE]['num_of_solved_elements'])):
 		for x in range(MATRIX_DIM_X):
 			for y in range(MATRIX_DIM_Y):
 				if ((True == matrix[x][y]['solved']) and (False == matrix[x][y]['checked'])):
-					remove_known_numbers_from_line(x, y)
-					remove_known_numbers_from_column(x, y)
-					remove_known_numbers_from_submatrix(x, y)
+					matrix = remove_known_numbers_from_line(matrix, x, y)
+					matrix = remove_known_numbers_from_column(matrix, x, y)
+					matrix = remove_known_numbers_from_submatrix(matrix, x, y)
 					matrix[x][y]['checked'] = True
 					matrix[VARIABLE]['num_of_checked_elements'] = matrix[VARIABLE]['num_of_checked_elements'] + 1
 				#endif
@@ -520,13 +545,22 @@ def matrix_solve(curs_x, curs_y):
 		#endfor
 	#endwhile
 
-	# Go through whole matrix and find first element with the lowest count of available numbers.
+	return matrix
+#enddef
+
+
+# Go through whole matrix and find first element with the lowest count of available numbers.
+def find_unsolved_element(matrix):
+	global min_x
+	global min_y
+
 	min_cnt_of_available_numbers = 10
-	min_x = 0
-	min_y = 0
+	available_numbers = []
+	min_x = -1
+	min_y = -1
 	for x in range(MATRIX_DIM_X):
 		for y in range(MATRIX_DIM_Y):
-			if (False == matrix[x][y]['solved']) and (min_cnt_of_available_numbers > len(matrix[x][y]['available_numbers'])):
+			if (False == matrix[x][y]['solved']) and (len(matrix[x][y]['available_numbers']) < min_cnt_of_available_numbers):
 				min_cnt_of_available_numbers = len(matrix[x][y]['available_numbers'])
 				available_numbers.clear()
 				available_numbers.extend(matrix[x][y]['available_numbers'])
@@ -536,22 +570,76 @@ def matrix_solve(curs_x, curs_y):
 		#endfor
 	#endfor
 
-	check = verify_matrix()
+	return min_x, min_y, available_numbers
+#enddef
+
+
+###############################################################################
+# Solve the matrix.
+###############################################################################
+def matrix_solve(matrix, x, y, number_to_try):
+	# global gDone
+	global gStep
+	global gAvailable_numbers
+	global gX
+	global gY
+
+	gStep = gStep + 1
+
+	temp_matrix = copy.deepcopy(matrix)
+
+	temp_matrix[x][y]['solved'] = True
+	temp_matrix[x][y]['solution'] = number_to_try
+	temp_matrix[x][y]['available_numbers'] = []
+	temp_matrix[VARIABLE]['num_of_solved_elements'] = temp_matrix[VARIABLE]['num_of_solved_elements'] + 1
+
+	temp_matrix = remove_known_numbers(temp_matrix)
+
+	if (True == is_matrix_filled(temp_matrix)):
+		refresh_screen(temp_matrix, 0, 0)
+		if (True == is_matrix_solved(temp_matrix)):
+			print("Sudoku is solved!!")
+			return True
+		else:
+			print("Whole matrix is filled with numbers but it does not pass the checks. We have incorrect solution.")
+			return False
+		#endif
+	#endif
+
+	if (False == is_matrix_filled(temp_matrix)):
+		x, y, available_numbers = find_unsolved_element(temp_matrix)
+		gAvailable_numbers = available_numbers
+		gX = x
+		gY = y
+
+		refresh_screen(temp_matrix, 0, 0)
+		# input()
+
+		done = False
+		for i in range(len(available_numbers)):
+			# if (False == gDone):
+			done = matrix_solve(temp_matrix, x, y, available_numbers[i])
+			if (True == done):
+				return True
+		#endfor
+	#endif
+
 #enddef
 
 
 def main():
-	global matrix
+	global gMatrix
+	global finished
 
 	cursor("off")
 	os.system('')
 	curs_x = 0
 	curs_y = 0
-	matrix_init()
+	matrix_init(gMatrix)
 
 	g = "0"
 	while (ord(g) != BTN_ESC):
-		refresh_screen(curs_x, curs_y)
+		refresh_screen(gMatrix, curs_x, curs_y)
 		g = msvcrt.getch()
 
 		if (BTN_ARROW_UP    == ord(g)):
@@ -575,21 +663,46 @@ def main():
 				curs_x = 8
 
 		if ((ord(g) - ord('0')) in [1, 2, 3, 4, 5, 6, 7, 8, 9]):
-			add_value(curs_x, curs_y, int(g))
+			gMatrix = add_value(gMatrix, curs_x, curs_y, int(g))
 
 		if (BTN_DELETE == ord(g)):
-			delete_value(curs_x, curs_y)
+			gMatrix = delete_value(gMatrix, curs_x, curs_y)
 
 		# TODO: New game
 
+		if (BTN_F1 == ord(g)):
+			if (True == is_matrix_solved(gMatrix)):
+				finished = True
+
 		if (BTN_F5 == ord(g)):
-			matrix_save_load_menu("Save")
+			matrix_save_load_menu(gMatrix, "Save")
 
 		if (BTN_F6 == ord(g)):
-			matrix_save_load_menu("Load")
+			gMatrix = matrix_save_load_menu(gMatrix, "Load")
 
 		if (BTN_SPACE == ord(g)):
-			matrix_solve(curs_x, curs_y)
+			remove_known_numbers(gMatrix)
+
+			if (True == is_matrix_filled(gMatrix)):
+				if (True == is_matrix_solved(gMatrix)):
+					print("Sudoku is solved!! No recursion needed.")
+				else:
+					print("Whole matrix is filled with numbers but it does not pass the checks. We have incorrect solution.")
+				#endif
+			#endif
+
+			if (False == is_matrix_filled(gMatrix)):
+				x, y, available_numbers = find_unsolved_element(gMatrix)
+
+				done = False
+				for i in range(len(available_numbers)):
+					done = matrix_solve(gMatrix, x, y, available_numbers[i])
+					if (True == done):
+						return True
+				#endfor
+			#endif
+		#endif
+
 	#endwhile
 
 	cursor("on")
@@ -620,6 +733,7 @@ main()
 # 4 skontrolujem ci uz mam kompletne riesenie
 # 5 opakujem krok 1
 
+# g = '0'
 # while (ord(g) != 27):
 # 	g = msvcrt.getch()
 # 	print(ord(g))
