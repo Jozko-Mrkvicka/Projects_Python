@@ -1,0 +1,702 @@
+[
+    [
+        {
+            "index": 11,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 1
+        },
+        {
+            "index": 12,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 3
+        },
+        {
+            "index": 13,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 2
+        },
+        {
+            "index": 14,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 5
+        },
+        {
+            "index": 15,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 8
+        },
+        {
+            "index": 16,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 4
+        },
+        {
+            "index": 17,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 6
+        },
+        {
+            "index": 18,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 7
+        },
+        {
+            "index": 19,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 9
+        }
+    ],
+    [
+        {
+            "index": 21,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                6,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 22,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 5
+        },
+        {
+            "index": 23,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                6,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 24,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 7
+        },
+        {
+            "index": 25,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 2
+        },
+        {
+            "index": 26,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 1
+        },
+        {
+            "index": 27,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 4
+        },
+        {
+            "index": 28,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 3
+        },
+        {
+            "index": 29,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 8
+        }
+    ],
+    [
+        {
+            "index": 31,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 7
+        },
+        {
+            "index": 32,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 8
+        },
+        {
+            "index": 33,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 4
+        },
+        {
+            "index": 34,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 9
+        },
+        {
+            "index": 35,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 3
+        },
+        {
+            "index": 36,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 6
+        },
+        {
+            "index": 37,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 1
+        },
+        {
+            "index": 38,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 2
+        },
+        {
+            "index": 39,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 5
+        }
+    ],
+    [
+        {
+            "index": 41,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                2,
+                3,
+                6,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 42,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                6,
+                7,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 43,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                3,
+                6,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 44,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                6
+            ],
+            "solution": " "
+        },
+        {
+            "index": 45,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                6,
+                7
+            ],
+            "solution": " "
+        },
+        {
+            "index": 46,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                2,
+                7
+            ],
+            "solution": " "
+        },
+        {
+            "index": 47,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 5
+        },
+        {
+            "index": 48,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 8
+        },
+        {
+            "index": 49,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 4
+        }
+    ],
+    [
+        {
+            "index": 51,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 4
+        },
+        {
+            "index": 52,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 1
+        },
+        {
+            "index": 53,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 5
+        },
+        {
+            "index": 54,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 3
+        },
+        {
+            "index": 55,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 9
+        },
+        {
+            "index": 56,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 8
+        },
+        {
+            "index": 57,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 2
+        },
+        {
+            "index": 58,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 6
+        },
+        {
+            "index": 59,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 7
+        }
+    ],
+    [
+        {
+            "index": 61,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                2,
+                6,
+                8
+            ],
+            "solution": " "
+        },
+        {
+            "index": 62,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                6,
+                7
+            ],
+            "solution": " "
+        },
+        {
+            "index": 63,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                6,
+                8
+            ],
+            "solution": " "
+        },
+        {
+            "index": 64,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                2,
+                4,
+                6
+            ],
+            "solution": " "
+        },
+        {
+            "index": 65,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                4,
+                6,
+                7
+            ],
+            "solution": " "
+        },
+        {
+            "index": 66,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                2,
+                5,
+                7
+            ],
+            "solution": " "
+        },
+        {
+            "index": 67,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 3
+        },
+        {
+            "index": 68,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 9
+        },
+        {
+            "index": 69,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 1
+        }
+    ],
+    [
+        {
+            "index": 71,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                5,
+                6,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 72,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                6,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 73,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 7
+        },
+        {
+            "index": 74,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                4,
+                6
+            ],
+            "solution": " "
+        },
+        {
+            "index": 75,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                4,
+                6
+            ],
+            "solution": " "
+        },
+        {
+            "index": 76,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                2,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 77,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 8
+        },
+        {
+            "index": 78,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                4,
+                5
+            ],
+            "solution": " "
+        },
+        {
+            "index": 79,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 3
+        }
+    ],
+    [
+        {
+            "index": 81,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                3,
+                5,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 82,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 2
+        },
+        {
+            "index": 83,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                3,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 84,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                4,
+                8
+            ],
+            "solution": " "
+        },
+        {
+            "index": 85,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                4
+            ],
+            "solution": " "
+        },
+        {
+            "index": 86,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                3,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 87,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 7
+        },
+        {
+            "index": 88,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                4,
+                5
+            ],
+            "solution": " "
+        },
+        {
+            "index": 89,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 6
+        }
+    ],
+    [
+        {
+            "index": 91,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                3,
+                6,
+                8
+            ],
+            "solution": " "
+        },
+        {
+            "index": 92,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 4
+        },
+        {
+            "index": 93,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                3,
+                6,
+                8
+            ],
+            "solution": " "
+        },
+        {
+            "index": 94,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                6,
+                8
+            ],
+            "solution": " "
+        },
+        {
+            "index": 95,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 5
+        },
+        {
+            "index": 96,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                3,
+                7
+            ],
+            "solution": " "
+        },
+        {
+            "index": 97,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 9
+        },
+        {
+            "index": 98,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 1
+        },
+        {
+            "index": 99,
+            "solved": true,
+            "checked": true,
+            "available_numbers": [],
+            "solution": 2
+        }
+    ],
+    {
+        "num_of_solved_elements": 51,
+        "num_of_checked_elements": 51
+    }
+]

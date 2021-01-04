@@ -1,0 +1,1161 @@
+[
+    [
+        {
+            "index": 11,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 12,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 9
+        },
+        {
+            "index": 13,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 14,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 15,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 16,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 17,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 18,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 19,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        }
+    ],
+    [
+        {
+            "index": 21,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 22,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 23,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 4
+        },
+        {
+            "index": 24,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 25,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 9
+        },
+        {
+            "index": 26,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 27,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 1
+        },
+        {
+            "index": 28,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 29,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        }
+    ],
+    [
+        {
+            "index": 31,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 8
+        },
+        {
+            "index": 32,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 1
+        },
+        {
+            "index": 33,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 34,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 35,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 36,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 37,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 38,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 39,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 6
+        }
+    ],
+    [
+        {
+            "index": 41,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 42,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 43,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 44,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 6
+        },
+        {
+            "index": 45,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 46,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 5
+        },
+        {
+            "index": 47,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 8
+        },
+        {
+            "index": 48,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 49,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 4
+        }
+    ],
+    [
+        {
+            "index": 51,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 6
+        },
+        {
+            "index": 52,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 53,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 54,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 55,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 8
+        },
+        {
+            "index": 56,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 4
+        },
+        {
+            "index": 57,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 58,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 59,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        }
+    ],
+    [
+        {
+            "index": 61,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 62,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 63,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 64,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 65,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 66,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 67,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 68,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 69,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 7
+        }
+    ],
+    [
+        {
+            "index": 71,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 4
+        },
+        {
+            "index": 72,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 73,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 74,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 1
+        },
+        {
+            "index": 75,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 76,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 77,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 78,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 7
+        },
+        {
+            "index": 79,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        }
+    ],
+    [
+        {
+            "index": 81,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 82,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 83,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 84,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 85,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 6
+        },
+        {
+            "index": 86,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 87,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 88,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 5
+        },
+        {
+            "index": 89,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        }
+    ],
+    [
+        {
+            "index": 91,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 92,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 2
+        },
+        {
+            "index": 93,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 94,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 95,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        },
+        {
+            "index": 96,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 7
+        },
+        {
+            "index": 97,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 4
+        },
+        {
+            "index": 98,
+            "solved": true,
+            "checked": false,
+            "available_numbers": [],
+            "solution": 9
+        },
+        {
+            "index": 99,
+            "solved": false,
+            "checked": false,
+            "available_numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "solution": " "
+        }
+    ],
+    {
+        "num_of_solved_elements": 24,
+        "num_of_checked_elements": 0
+    }
+]
